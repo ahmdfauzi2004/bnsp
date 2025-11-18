@@ -2,16 +2,12 @@ name: Deploy to VPS
 
 on:
   push:
-    branches:
-      - main  # Trigger saat push ke main
+    branches: [ main ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
       - name: Deploy to VPS via SSH
         uses: appleboy/ssh-action@master
         with:
@@ -21,4 +17,5 @@ jobs:
           script: |
             cd /home/bnsp16/bnsp
             git pull origin main
+            docker compose down
             docker-compose up -d --build
