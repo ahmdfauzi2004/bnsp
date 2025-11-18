@@ -18,5 +18,5 @@ jobs:
           script: |
             cd /home/bnsp16/bnsp
             git pull origin main
-            docker compose down || true
+            docker compose down
             docker compose up -d --build
