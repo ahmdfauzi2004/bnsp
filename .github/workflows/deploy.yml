@@ -14,8 +14,9 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
+          script_stop: true
           script: |
             cd /home/bnsp16/bnsp
             git pull origin main
-            docker compose down
+            docker compose down || true
             docker compose up -d --build
