@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return '<h1>hello saya sudah berhasil update commit nihhh</h1>'
+    return '<h1>Halo saya mau update nihhh</h1>'
 
 if __name__=='__main__':
     app.run(host='0.0.0.0', port=5000)
